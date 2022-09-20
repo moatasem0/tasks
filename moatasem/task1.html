@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Timer app</h2>
+    <p>Start timer, you can pause or reset timer:</p>
+    <div id="myDiv"></div>
+
+    <!-- This button should start the timer or resume it -->
+    <button id="start">Start</button>
+    <!-- This button should stop the timer -->
+    <button id="stop">Stop</button>
+    <!-- This button should reset the timer to start from 0 again -->
+    <button id="reset">Reset</button>
+
+    <script>
+        let seconds = 0;
+
+        let div = document.getElementById("myDiv");
+
+        var count;
+
+        div.innerHTML = seconds;
+
+        document.getElementById("start").onclick = function() {
+            count = setInterval(counter, 1000);
+        };
+
+        document.getElementById("stop").onclick = function() {
+            clearInterval(count);
+        };
+
+        document.getElementById("reset").onclick = reset;
+
+        function counter() {
+            seconds += 1;
+            div.innerHTML = seconds;
+        }
+
+        function reset() {
+            seconds = 0;
+            count = setInterval(counter, 1000);
+        }
+    </script>
+</body>
+
+</html>
