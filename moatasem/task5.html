@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <style>
+        .lesson {
+            margin: 20px
+        }
+        
+        hr {
+            border-bottom: 1px solid #CCC;
+            margin: 0 0 20px;
+            width: 500px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lesson">
+        <h2>How To Generate Options Inside Select Box</h2>
+        <p>
+            <a href="https://www.youtube.com/watch?v=ipIbnsyeO1o">Lesson On Youtube</a>
+        </p>
+        <hr>
+        <form>
+            <select id="days" name="years">
+            <option value="x">Choose Day JQuery</option>
+          </select>
+            <select id="daysJS" name="years">
+            <option value="x">Choose Day JS plan</option>
+          </select>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+            "use strict";
+            for (var i = 1; i <= 31; i++) {
+                $("<option>", {
+                    value: i,
+                    text: i
+                }).appendTo($("#days"));
+            }
+        });
+
+        let select = document.getElementById("daysJS");
+        for (var i = 1; i <= 31; i++) {
+            let newOption = document.createElement("option");
+            newOption.value = i;
+            newOption.text = i;
+            select.appendChild(newOption);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <style>
+        div.links,
+        a.link {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Random github users</h1>
+
+    <div class="links">
+        <!-- <a href="https://github.com/Si-HaMaDa" class="link btn btn-primary btn-sm" target="_blank">Si-HaMaDa</a> -->
+    </div>
+    <div class="api"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        /*
+         * Using JS make this array of users existing in the HTML using the same structure of the example user link
+         * First level use the users variable
+         * Second level use Ajax and get users from this link
+         * - https://api.github.com/users/
+         */
+
+        let users = [
+                "OsamaElzero",
+                "dmalan",
+                "taylorotwell",
+                "themsaid",
+                "freekmurze"
+            ],
+            links = $('.links');
+
+        users.forEach(function(user) {
+            var a = $('<a class="link btn btn-primary btn-sm" target="_blank"></a>');
+            a.attr("href", "https://github.com/" + user);
+            a.text(user);
+            links.append(a);
+        });
+
+        var apiDiv = $('.api');
+        $.get('https://api.github.com/users', function(data) {
+            data.forEach(function(user) {
+                var a = $('<a class="link btn btn-primary btn-sm" target="_blank"></a>');
+                a.attr("href", "https://github.com/" + user.login);
+                a.text(user.login);
+                apiDiv.append(a);
+            });
+        });
+    </script>
+</body>
+
+</html>

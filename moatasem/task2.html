@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        img,
+        button {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="img1" src="https://via.placeholder.com/200.png/09f/fff" alt="">
+        <img id="img2" src="https://via.placeholder.com/200.png/f00/fff" alt="">
+        <img id="img3" src="https://via.placeholder.com/200.png/0ff/fff" alt="">
+    </div>
+    <button id="toggleOne">Toogle One</button>
+    <button id="toggleTwo">Toogle Two</button>
+    <button id="toggleAll">Toogle All</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let toggleOne = $("#toggleOne");
+        toggleOne.on("click", toggleOneAction);
+
+        function toggleOneAction() {
+            if ($("#img1").css('display') == "none") {
+                $("#img1").css('display', "inline");
+            } else {
+                $("#img1").css('display', "none");
+            }
+        }
+
+        // All imgs toggle
+        let toggleAll = $("#toggleAll");
+        toggleAll.on("click", toggleAllAction);
+
+        function toggleAllAction() {
+            let imgs = $("img");
+            for (let i = 0; i < imgs.length; i++) {
+                if ($(imgs[i]).css('display') == "none") {
+                    $(imgs[i]).css('display', "inline");
+                } else {
+                    $(imgs[i]).css('display', "none");
+                }
+            }
+        }
+
+        // Make function for toggle JS
+        function toggleTwoAction(ele) {
+            if (ele.css('display') == "none") {
+                ele.css('display', "inline");
+            } else {
+                ele.css('display', "none");
+            }
+        }
+
+        let toggleTwo = $("#toggleTwo");
+        toggleTwo.on("click", function() {
+            let img = $("#img2");
+            toggleTwoAction(img);
+        });
+    </script>
+</body>
+
+</html>

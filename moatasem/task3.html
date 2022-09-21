@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        img {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" id="image" alt="Hi!">
+    <script>
+        const images = [
+            'https://via.placeholder.com/300.png/000/fff', // 0
+            'https://via.placeholder.com/300.png/111/fff', // 1
+            'https://via.placeholder.com/300.png/222/fff', // 2
+            'https://via.placeholder.com/300.png/333/fff', // 3
+            'https://via.placeholder.com/300.png/444/fff', // 4
+            'https://via.placeholder.com/300.png/555/fff', // 5
+            'https://via.placeholder.com/300.png/666/fff', // 6
+            'https://via.placeholder.com/300.png/777/fff', // 7
+            'https://via.placeholder.com/300.png/888/fff', // 8
+            'https://via.placeholder.com/300.png/999/fff', // 9
+        ];
+
+        // Make this number a random number within array items (length) 
+        let randomNumber = Math.floor(Math.random() * images.length);
+
+        document.getElementById('image').src = images[randomNumber];
+    </script>
+</body>
+
+</html>
